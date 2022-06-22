@@ -9,7 +9,9 @@ function App() {
   return (
     <div className='container'>
     <NavBar></NavBar>
-    <ItemListContainer greeting={"Bienvenido/a"}/>
+    <ItemListContainer greeting={"Bienvenido/a"}>
+      <h2>Este es el item list container</h2>
+    </ItemListContainer>
     {/* <Input valorPlaceholder={"Hola"} title={" como estas?"}/> */}
     </div>
   );
