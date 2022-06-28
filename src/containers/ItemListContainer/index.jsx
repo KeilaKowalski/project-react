@@ -1,18 +1,17 @@
 import React from "react";
-import ItemCount from "../../components/ItemCount";
+//import { useState } from "react";
+//import ItemCount from "../../components/ItemCount";
+import ItemList from "../../components/ItemList";
 import "./styles.css";
 
 const ItemListContainer = ({ greeting }) => {
-  const onAdd = () => {
-    console.log("Se agrego al carrito");
-  };
-
   return (
-    <div className="containerGreeting">
-      <h1>{greeting}</h1>
-      <img src="/assets/download.jpg" alt="buzo" />
-      <ItemCount onAdd={onAdd} />
-    </div>
+    <section>
+      {/* <h1>{greeting}</h1>
+      <img src="/assets/download.jpg" alt="buzo" /> */}
+      <h2>Productos</h2>
+      <ItemList />
+    </section>
   );
 };
 
