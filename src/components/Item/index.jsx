@@ -1,10 +1,11 @@
 import React from "react";
 import ItemCount from "../ItemCount";
 import { useNavigate } from "react-router-dom";
+import "./styles.css";
 
-export const Item = ({ name, img, price, id, stock }) => {
+export const Item = ({ title, id, price, count }) => {
   const onAdd = (qty) => {
-    console.log(`Has agregado ${qty} libros`);
+    console.log(`Has agregado ${qty} productos`);
   };
 
   const navigate = useNavigate();
@@ -15,13 +16,11 @@ export const Item = ({ name, img, price, id, stock }) => {
   };
 
   return (
-    <article>
-      onClick={handleDetail}
-      <img />
-      <h3>{name}</h3>
-      <span>{price}</span>
-      <ItemCount stock={stock} onAdd={onAdd} initial={1} />
-    </article>
+    <div className="ItemContainer" onClick={handleDetail}>
+      <p>{title}</p>
+      <span>${price}</span>
+      {/* <ItemCount stock={count} onAdd={onAdd} initial={1} /> */}
+    </div>
   );
 };
 

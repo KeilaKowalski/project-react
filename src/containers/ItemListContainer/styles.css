@@ -1,5 +1,7 @@
-.containerGreeting {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
+.ItemListContainer {
+    margin-top: 70px;
+    display: block;
+    
+    
+    
 }

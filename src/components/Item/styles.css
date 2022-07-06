@@ -1,0 +1,11 @@
+.ItemContainer {
+    /* display: flex;
+    flex-direction: column; */
+        width: 70%;
+        margin: 20px;
+        background-color: rgb(225, 146, 249);
+        border: 0;
+        padding: 20px;
+        font-size: 15px;
+        box-shadow: 4px 6px 18px 5px rgba(0, 0, 0, 0.85);
+}

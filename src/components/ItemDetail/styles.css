@@ -1,0 +1,10 @@
+.ItemDetailDiv{
+    margin-top: 60px;
+    margin-left: 25px;
+    width: 50%;
+    
+}
+.ItemDetailDiv img{
+    width: 50%;
+    display: block;
+}

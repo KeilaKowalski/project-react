@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Item from "../Item";
 import { productList } from "../data/data";
 //import ItemCount from "../ItemCount";
+import "./styles.css";
 
 const ItemList = ({ products }) => {
   // const [products, setProducts] = useState([]);
@@ -28,22 +29,33 @@ const ItemList = ({ products }) => {
   // }, []);
 
   return (
-    <div>
-      {/* //   {products.length ? (
-    //     <>
-    //       {products.map((product) => {
-    //         const { name, img, price, stock, id } = product;
+    // <div className="ItemListDiv">
+    //   {products.map((producto) => {
+    //     return <Item product={producto} key={producto.id} />;
+    //   })}
+    //</div>
+    <div className="ItemListDiv">
+      {products.length ? (
+        <>
+          {products.map((product) => {
+            const { title, img, price, stock, id, description } = product;
 
-    //         return (
-    //           <div key={id}>
-    //             <Item name={name} price={price} stock={stock} id={id} />
-    //           </div>
-    //         );
-    //       })}
-    //     </>
-    //   ) : (
-    //     <p>Cargando productos...</p>
-    //   )} */}
+            return (
+              <div className="ItemListDiv2" key={id}>
+                <Item
+                  product={product}
+                  title={title}
+                  price={price}
+                  stock={stock}
+                  id={id}
+                />
+              </div>
+            );
+          })}
+        </>
+      ) : (
+        <p>Cargando productos...</p>
+      )}
     </div>
   );
 };

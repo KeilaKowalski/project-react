@@ -1,21 +1,23 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 //import ItemCount from "../../components/ItemCount";
 import ItemList from "../../components/ItemList";
 import "./styles.css";
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
+  const [productosFiltrados, setProductosFiltrados] = useState([]);
+
+  const params = useParams();
 
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/posts/1"
-        );
+        const response = await fetch("https://fakestoreapi.com/products");
         const data = await response.json();
-        console.log(data);
         setProducts(data);
+        setProductosFiltrados(data);
       } catch (error) {
         console.log(error);
         console.log("Ocurrió un error");
@@ -23,12 +25,25 @@ const ItemListContainer = ({ greeting }) => {
     };
     getProducts();
   }, []);
+
+  useEffect(() => {
+    if (params?.categoryId) {
+      const productosFiltrados = products.filter(
+        (producto) => producto.category === params.categoryId
+      );
+      setProductosFiltrados(productosFiltrados);
+    } else {
+      setProductosFiltrados(products);
+    }
+  }, [params, products]);
+
   console.log(products);
+
   return (
-    <div>
-      <p>{greeting}</p>
+    <div className="ItemListContainer">
+      {/* <p>{greeting}</p> */}
       {products.length !== 0 ? (
-        <ItemList products={products} />
+        <ItemList products={productosFiltrados} />
       ) : (
         <p>Loading...</p>
       )}
