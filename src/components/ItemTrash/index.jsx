@@ -8,7 +8,7 @@ const ItemTrash = ({ removeItem }) => {
 
   return (
     <div>
-      <IoIosTrash onClick={() => removeItem(item.id)} />
+      <IoIosTrash />
     </div>
   );
 };
