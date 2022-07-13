@@ -38,7 +38,7 @@ const Cart = () => {
       })}
 
       <div>Total: ${getTotalPrice()}</div>
-      <button onClick={() => clearAll(cart)}>Eliminar todo</button>
+      <button onClick={() => clearAll()}>Delete All</button>
     </ul>
   );
 };

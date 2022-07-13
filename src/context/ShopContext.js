@@ -33,14 +33,10 @@ const ShopProvider = ({children}) => {
         setCart(cart.filter(producto => producto.id !== id)) 
     }
     //Eliminar todos los prod del carrito
-    const clearAll = (arr) => {
-        for(let i = cart.length; i > 0; i--){
-            cart.pop();
-        }
-        // setCart(cart.splice(0,cart.length));
-        console.log(arr);
+    const clearAll = () => {
+        setCart([]);
     }
-    //obtener precio total
+    //Obtener precio total
     const getTotalPrice = () => {
         return cart.reduce((acc, producto) => acc + producto.price * producto.quantity, 0);
     }
