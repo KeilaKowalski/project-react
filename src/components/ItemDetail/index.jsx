@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import ButtonCount from "../ButtonCount";
+import { useContext } from "react";
+import { Shop } from "../../context/ShopContext";
 
 const ItemDetail = ({ product }) => {
   const navigate = useNavigate();
@@ -11,11 +13,13 @@ const ItemDetail = ({ product }) => {
   product.stock = 10;
 
   const [qtyAdded, setQtyAdded] = useState(0);
+  const { addItem } = useContext(Shop);
 
   const handleConfirm = (qty) => {
     setQtyAdded(qty);
   };
   const handleTerminate = () => {
+    addItem(product, qtyAdded);
     navigate("/cart");
   };
 

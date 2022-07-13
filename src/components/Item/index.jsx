@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import ItemCount from "../ItemCount";
 import { useNavigate } from "react-router-dom";
+import { Shop } from "../../context/ShopContext";
 import "./styles.css";
 
 export const Item = ({ title, id, price, count }) => {
+  const cartContext = useContext(Shop);
+  const { setCart } = Shop;
+
   const onAdd = (qty) => {
     console.log(`Has agregado ${qty} productos`);
   };

@@ -1,8 +1,17 @@
 import React from "react";
+import { useContext } from "react";
 import { HiShoppingCart } from "react-icons/hi";
+import { Shop } from "../../context/ShopContext";
 
 const CartWidget = () => {
-  return <HiShoppingCart size={38} className="iconoCarrito" />;
+  const { cart } = useContext(Shop);
+
+  return (
+    <div>
+      <HiShoppingCart size={38} className="iconoCarrito" />
+      {cart.length && <span>{cart.length}</span>}
+    </div>
+  );
 };
 
 export default CartWidget;

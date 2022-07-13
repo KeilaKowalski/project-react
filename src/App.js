@@ -7,9 +7,11 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import NotFound from './components/NotFound';
 import ItemDetailContainer from './containers/ItemListContainer/ItemDetailContainer';
 import Cart from './containers/ItemListContainer/Cart';
+import ShopProvider from './context/ShopContext';
 function App() {
   
   return (
+    <ShopProvider>
     <BrowserRouter>
     
     <NavBar></NavBar>
@@ -27,6 +29,7 @@ function App() {
     </Routes>
 
     </BrowserRouter>
+    </ShopProvider>
   
     // <div className='container'>
     //   <NavBar />

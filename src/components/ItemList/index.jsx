@@ -4,6 +4,8 @@ import Item from "../Item";
 import { productList } from "../data/data";
 //import ItemCount from "../ItemCount";
 import "./styles.css";
+import { useContext } from "react";
+import { Shop } from "../../context/ShopContext";
 
 const ItemList = ({ products }) => {
   // const [products, setProducts] = useState([]);
@@ -28,6 +30,10 @@ const ItemList = ({ products }) => {
   //   getProductsFromDB();
   // }, []);
 
+  const { setEstadoA } = useContext(Shop);
+  const handleChangeState = () => {
+    setEstadoA("Otro valor");
+  };
   return (
     // <div className="ItemListDiv">
     //   {products.map((producto) => {
@@ -56,6 +62,7 @@ const ItemList = ({ products }) => {
       ) : (
         <p>Cargando productos...</p>
       )}
+      <button onClick={handleChangeState}>Cambio estado A</button>
     </div>
   );
 };
