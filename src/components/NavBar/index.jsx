@@ -25,12 +25,13 @@ const NavBar = () => {
       <li>
         <Link to="/category/men's clothing">Men's clothing</Link>
       </li>
-      <li>
+      {/* <li>
         <a href="/#">{estadoA}</a>
-      </li>
+      </li> */}
       <div className="containerCarrito">
-        {" "}
-        <CartWidget />
+        <Link to="/cart" style={{ textDecoration: "none" }}>
+          {<CartWidget />}
+        </Link>
       </div>
     </ul>
   );

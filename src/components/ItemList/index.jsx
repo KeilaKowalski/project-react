@@ -62,7 +62,7 @@ const ItemList = ({ products }) => {
       ) : (
         <p>Cargando productos...</p>
       )}
-      <button onClick={handleChangeState}>Cambio estado A</button>
+      {/* <button onClick={handleChangeState}>Cambio estado A</button> */}
     </div>
   );
 };

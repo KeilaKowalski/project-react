@@ -1,7 +1,7 @@
 import React from "react";
 //import ItemCount from "../ItemCount";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
 import ButtonCount from "../ButtonCount";
 import { useContext } from "react";
@@ -20,7 +20,7 @@ const ItemDetail = ({ product }) => {
   };
   const handleTerminate = () => {
     addItem(product, qtyAdded);
-    navigate("/cart");
+    //navigate("/cart");
   };
 
   console.log(qtyAdded);
@@ -33,8 +33,11 @@ const ItemDetail = ({ product }) => {
       {!qtyAdded ? (
         <ButtonCount onConfirm={handleConfirm} maxQuantity={product.stock} />
       ) : (
-        <button onClick={handleTerminate}>Finalizar compra</button>
+        <button onClick={handleTerminate}>Add to cart</button>
       )}
+      <div>
+        <Link to="/">Continue shopping</Link>
+      </div>
     </div>
   );
 };
