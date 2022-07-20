@@ -32,7 +32,7 @@ const Cart = () => {
                 style={{ display: "flex", alignItems: "center" }}
                 key={producto.id}
               >
-                {producto.title} - $ {producto.price} - (Qty:{" "}
+                {producto.title} $ {producto.price} (Qty:
                 {producto.quantity}) - Total: ${" "}
                 {producto.price * producto.quantity}
                 <span

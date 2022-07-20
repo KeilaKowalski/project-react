@@ -9,7 +9,7 @@ const CartWidget = () => {
   return (
     <div>
       <HiShoppingCart size={38} className="iconoCarrito" />
-      {cart.length > 0 ? <span>{cart.length}</span> : <span></span>}
+      {cart.length > 0 && <span>{cart.length}</span>}
     </div>
   );
 };

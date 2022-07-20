@@ -6,6 +6,8 @@ import ItemList from "../../components/ItemList";
 import ModalConEsc from "../../components/ModalConEsc";
 import ButtonCount from "../../components/ButtonCount";
 import "./styles.css";
+import { collection, query, getDocs } from "firebase/firestore";
+import { db } from "../../firebase/config";
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
@@ -17,10 +19,21 @@ const ItemListContainer = ({ greeting }) => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const response = await fetch("https://fakestoreapi.com/products");
-        const data = await response.json();
-        setProducts(data);
-        setProductosFiltrados(data);
+        //obtenemos el snapchost de todos los doc que generamos en firestore
+        const q = query(collection(db, "products"));
+        const querySnapshot = await getDocs(q);
+        const productos = [];
+        querySnapshot.forEach((doc) => {
+          //doc.data is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+          productos.push({ id: doc.id, ...doc.data() });
+        });
+        console.log(productos);
+
+        // const response = await fetch("https://fakestoreapi.com/products");
+        // const data = await response.json();
+        setProducts(productos);
+        setProductosFiltrados(productos);
       } catch (error) {
         console.log(error);
         console.log("Ocurrió un error");
