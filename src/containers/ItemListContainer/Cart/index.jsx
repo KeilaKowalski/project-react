@@ -3,10 +3,16 @@ import { useContext } from "react";
 import ItemTrash from "../../../components/ItemTrash";
 import { Shop } from "../../../context/ShopContext";
 import { Link } from "react-router-dom";
+import ordenGenerada from "../../../utils/ordenGenerada";
+import ordenGuardada from "../../../utils/ordenGuardada";
 
 const Cart = () => {
   const { cart, removeItem, getTotalPrice, clearAll } = useContext(Shop);
   console.log(cart);
+  const confirmarOrden = async () => {
+    const orden = ordenGenerada("Keila", "Calle 321", cart, 1240);
+    ordenGuardada(cart, orden);
+  };
   return (
     <ul
       style={{
@@ -41,7 +47,6 @@ const Cart = () => {
                 >
                   <ItemTrash />
                 </span>
-                {/* <img src={producto.image} alt={producto.title} widt="20px" /> */}
               </li>
             </div>
           );
@@ -49,6 +54,7 @@ const Cart = () => {
       )}
 
       <div>Total: $ {getTotalPrice()}</div>
+      <button onClick={confirmarOrden}>Confirm order</button>
       <button onClick={() => clearAll()}>Delete All</button>
     </ul>
   );

@@ -5,11 +5,7 @@ const ButtonCount = ({ onConfirm, maxQuantity }) => {
   const [value, setValue] = useState(1);
   maxQuantity = 10;
   const handleConfirm = () => {
-    if (value <= maxQuantity) {
-      onConfirm(value);
-    } else {
-      alert("El valor es mayor a maxQuantity");
-    }
+    onConfirm(value);
   };
 
   return (
