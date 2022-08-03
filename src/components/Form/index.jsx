@@ -3,9 +3,11 @@ import { useForm } from "react-hook-form";
 import "./styles.css";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { useState } from "react";
 
 const Form = ({ confirmarOrden }) => {
   const MySwal = withReactContent(Swal);
+  const [mail, setMail] = useState();
   const {
     register,
     formState: { errors },
@@ -58,7 +60,11 @@ const Form = ({ confirmarOrden }) => {
             className="form-control form-control-sm"
             type="email"
             name="email"
-            {...register("email", { pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i })}
+            {...register("email", {
+              required: true,
+              pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
+              onChange: (e) => setMail(e.target.value),
+            })}
             placeholder="email@email.com"
           />
           <span className="text-danger text-small d-block mb-2">
@@ -67,6 +73,41 @@ const Form = ({ confirmarOrden }) => {
             )}
           </span>
         </div>
+        <div className="col-auto">
+          <label htmlFor="email" className="form-control">
+            Repeat E-mail
+          </label>
+          <input
+            className="form-control form-control-sm"
+            type="email"
+            name="email2"
+            {...register("email2", {
+              required: true,
+              validate: (value) => value === mail || "The e-mail is different",
+            })}
+            placeholder="email@email.com"
+          />
+          <span className="text-danger text-small d-block mb-2">
+            <p>{errors.email2?.message}</p>
+          </span>
+        </div>
+
+        <div className="col-auto">
+          <label htmlFor="number" className="form-control">
+            Phone
+          </label>
+          <input
+            className="form-control form-control-sm"
+            type="number"
+            name="phone"
+            {...register("phone", { required: true, minLength: 5 })}
+            placeholder="353..."
+          />
+          <span className="text-danger text-small d-block mb-2">
+            {errors.phone?.type === "required" && <p>The phone is required</p>}
+          </span>
+        </div>
+
         <div className="col-auto">
           <label htmlFor="addres" className="form-control">
             Addres

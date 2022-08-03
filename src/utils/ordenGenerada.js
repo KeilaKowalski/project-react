@@ -4,6 +4,7 @@ const ordenGenerada = (buyer, cart, total) => {
     buyer: {
       name: buyer.name,
       email: buyer.email,
+      phone: buyer.phone,
       addres: buyer.addres,
       payment: buyer.payment,
     },
