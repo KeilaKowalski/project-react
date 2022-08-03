@@ -1,7 +1,7 @@
+
 .ItemListContainer {
     margin-top: 70px;
     display: block;
-    
-    
-    
+    z-index: 0;
+    background-color: rgba(242, 252, 254, 0.711)
 }

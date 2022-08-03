@@ -8,7 +8,6 @@ import { db } from "../../../firebase/config";
 const ItemDetailContainer = () => {
   const [productDetail, setProductDetail] = useState({});
   const params = useParams();
-  // const [error, setError] = useState("");
 
   useEffect(() => {
     const getProducts = async () => {
@@ -27,15 +26,8 @@ const ItemDetailContainer = () => {
           // doc.data() will be undefined in this case
           console.log("No such document!");
         }
-
-        // const response = await fetch(
-        //   `https://fakestoreapi.com/products/${params.productId}`
-        // );
-        // const data = await response.json();
-        // setProductDetail(data);
       } catch (error) {
         console.log(error);
-        // setError(error.message);
       }
     };
     getProducts();

@@ -1,11 +1,13 @@
 .ItemContainer {
-    /* display: flex;
-    flex-direction: column; */
-        width: 70%;
+        width: 80%;
         margin: 20px;
-        background-color: rgb(225, 146, 249);
+        background-color: rgb(236, 198, 235);
         border: 0;
         padding: 20px;
         font-size: 15px;
-        box-shadow: 4px 6px 18px 5px rgba(0, 0, 0, 0.85);
+        box-shadow: 4px 6px 18px 5px rgba(172, 172, 172, 0.85);
+        
+}
+.cardBody:hover{
+    cursor: pointer;
 }
